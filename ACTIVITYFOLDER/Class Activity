@@ -1,0 +1,66 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+class Student {
+    int rollNo;
+    String name;
+    int age;
+    int marks;
+    Student(int rollNo, String name, int age,int marks) {
+        this.rollNo = rollNo;
+        this.name = name;
+        this.age = age;
+        this.marks = marks;
+    }
+    void display() {
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name   : " + name);
+        System.out.println("Age    :" +  age);
+        System.out.println("Marks  : " + marks);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student(101, "chandana",20, 85));
+        students.add(new Student(102, "Priya", 19,72));
+        students.add(new Student(103, "kavya", 20,91));
+        students.add(new Student(104, "Sneha",19, 65));
+        int minMarks = students.get(0).marks;
+        for (Student s : students) {
+            if (s.marks < minMarks) {
+                minMarks = s.marks;
+            }
+        }
+        System.out.println("ENTIRE STUDENT LIST");
+        Iterator<Student> AL = students.iterator();
+        while (AL.hasNext()) {
+            Student s = AL.next();
+            s.display();
+        }
+        System.out.println("Minimum Marks = " + minMarks);
+    }
+}
+
+
+ENTIRE STUDENT LIST
+Roll No: 101
+Name   : chandana
+Age    :20
+Marks  : 85
+Roll No: 102
+Name   : Priya
+Age    :19
+Marks  : 72
+Roll No: 103
+Name   : kavya
+Age    :20
+Marks  : 91
+Roll No: 104
+Name   : Sneha
+Age    :19
+Marks  : 65
+Minimum Marks = 65
+
+=== Code Execution Successful ===
